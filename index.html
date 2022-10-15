@@ -25,8 +25,14 @@ body { margin:0; padding:0; }
 <script>
 
 //作成したタイルのセット
-const set = ["T1-Ls", "T1-Pt", "T2-Ls", "T2-Ls2", "T2-Pt", "T3-Ls", "T3-Pt"];
+//すべて
+const set = ["T1-Ls", "T1-Pt", "T2-Ls", "T2-Ls3", "T2-Ls4", "T2-Pt", "T3-Ls", "T3-Pt"];
+//計測1
+//const set = ["T1-Ls", "T1-Pt", "T2-Ls", "T2-Ls2", "T2-Pt", "T3-Ls", "T3-Pt"];
+//計測2
 //const set = ["T2-Ls", "T2-Ls3"]
+//計測4
+//const set = ["T2-Ls", "T2-Ls4"]
 
 const l = set.length;
 const t = Math.floor(Math.random() * l);
@@ -107,7 +113,7 @@ if(n == "T1-Pt"){
   
 }
 
-if(n == "T2-Ls" || n == "T2-Ls3"){
+if(n == "T2-Ls" || n == "T2-Ls3" || n == "T2-Ls4"){
   
   const layer = {
     "id": `1`,
@@ -160,6 +166,10 @@ if(n == "T2-Ls" || n == "T2-Ls3"){
     layer.paint["line-width"].push(1);
     layer.paint["line-opacity"].push(1);
     layer.paint["line-gap-width"].push(0);
+  }
+  
+  if(n == "T2-Ls4"){
+    layer.layout["line-sort-key"] = ["get", "code"];
   }
   
   layers.push(layer);
